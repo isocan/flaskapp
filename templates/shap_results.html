@@ -6,14 +6,14 @@
 <body>
     <h1>Top 10 Absolute SHAP Values with Column Names:</h1>
     <table>
-        <tr>
+    	<tr>
             <th>Column Name</th>
             <th>SHAP Value</th>
         </tr>
-        {% for index, row in top_10_shap.iterrows() %}
+        {% for row in top_10_shap %}
         <tr>
-            <td>{{ index }}</td>
-            <td>{{ row }}</td>
+            <td>{{ row['Column Name'] }}</td>
+            <td>{{ row['SHAP Value'] }}</td>
         </tr>
         {% endfor %}
     </table>

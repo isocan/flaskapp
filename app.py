@@ -34,8 +34,11 @@ def index():
 
     shap_df = pd.DataFrame(data=shap_values, columns=features)
     top_10_shap = shap_df.abs().stack().sort_values(ascending=False).head(10)
+    
+    top_10_shap_df = top_10_shap.reset_index()
+    top_10_shap_df.columns = ['Column Name', 'SHAP Value']
 
-    return render_template('shap_results.html', top_10_shap=top_10_shap)
+    return render_template('shap_results.html', top_10_shap=top_10_shap_df)
 
 if __name__ == '__main__':
     app.run(debug=True)
