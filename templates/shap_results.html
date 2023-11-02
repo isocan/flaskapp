@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Top 10 Absolute SHAP Values</title>
+    <title>SHAP Values</title>
 </head>
 <body>
     <h1>Top 10 Absolute SHAP Values with Column Names:</h1>
-    <ul>
-        {% for shap_value in top_10_shap %}
-            <li>{{ shap_value }}</li>
+    <table>
+        <tr>
+            <th>Column Name</th>
+            <th>SHAP Value</th>
+        </tr>
+        {% for index, row in top_10_shap.iterrows() %}
+        <tr>
+            <td>{{ index }}</td>
+            <td>{{ row }}</td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
 </body>
 </html>
-
-
